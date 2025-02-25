@@ -1,12 +1,18 @@
+import { TracksList } from "@/components/TracksList"
+import { screenPadding } from "@/constants/tokens"
 import { defaultStyles } from "@/styles"
 import { Stack } from "expo-router"
-import { View, Text } from "react-native"
+import { View, Text, ScrollView, FlatListProps } from "react-native"
+
+
 
 const SongsScreen = () => {
     console.log('songs Screen',)
     return (
-        <View style={{backgroundColor: "#000", flex: 1}}>
-            <Text style={defaultStyles.text}>Songs screen</Text>
+        <View style={defaultStyles.container}>
+            <ScrollView contentInsetAdjustmentBehavior="automatic" style={{ paddingHorizontal: screenPadding.horizontal }} >
+                <TracksList scrollEnabled={false} />
+            </ScrollView>
         </View>
     )
 }
