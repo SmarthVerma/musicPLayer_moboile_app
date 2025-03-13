@@ -5,12 +5,13 @@ export const StackScreenWithSearchBar: NativeStackNavigationOptions = {
 	headerLargeTitle: true,
 	headerLargeStyle: {
 		backgroundColor: colors.backgroundColor,
+		
 	},
 	headerLargeTitleStyle: {
 		color: colors.text,
 	},
 	headerTintColor: colors.text,
-	headerTransparent: true,
+	headerTransparent: true,	
 	headerBlurEffect: 'prominent',
 	headerShadowVisible: false,
 };

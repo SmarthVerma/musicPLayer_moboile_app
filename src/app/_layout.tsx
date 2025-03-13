@@ -1,11 +1,24 @@
+import { useSetupTrackPlayer } from '@/hooks/useSetupTrackPlayer';
 import { defaultStyles } from '@/styles';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SplashScreen } from "expo-router";
+import { useCallback } from 'react';
+
+SplashScreen.preventAutoHideAsync();
 
 const AppLayout = () => {
-	console.log('kion here',)
+
+
+	const handleTrackPlayerLoaded = useCallback(() => {
+		SplashScreen.hideAsync()
+	}, [])
+
+	useSetupTrackPlayer({
+		// onLoad: handleTrackPlayerLoaded
+	})
 	return (
 		<SafeAreaProvider>
 			<RootNavigation />
@@ -15,7 +28,6 @@ const AppLayout = () => {
 }
 
 const RootNavigation = () => {
-	console.log('in here',)
 	return (
 		<Stack>
 			<Stack.Screen name='(tabs)' options={{ headerShown: false }} />

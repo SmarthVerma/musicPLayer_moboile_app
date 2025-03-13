@@ -2,7 +2,7 @@ import { defaultStyles } from "@/styles"
 import { Stack } from "expo-router"
 import { View, Text } from "react-native"
 
-const SongsScreen = () => {
+const PlaylistScreen = () => {
     console.log('songs Screen',)
     return (
         <View style={{backgroundColor: "#000", flex: 1}}>
@@ -11,4 +11,4 @@ const SongsScreen = () => {
     )
 }
 
-export default SongsScreen
+export default PlaylistScreen

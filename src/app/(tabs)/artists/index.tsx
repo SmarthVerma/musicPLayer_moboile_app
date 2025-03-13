@@ -1,9 +1,10 @@
+import { useNavigationSearch } from "@/hooks/useNavigationSearch"
 import { defaultStyles } from "@/styles"
 import { Stack } from "expo-router"
 import { View, Text } from "react-native"
 
-const SongsScreen = () => {
-    console.log('songs Screen',)
+const ArtistsScreen = () => {
+
     return (
         <View style={{ backgroundColor: "#000", flex: 1 }}>
             <Text style={defaultStyles.text}>Artists screen</Text>
@@ -11,4 +12,4 @@ const SongsScreen = () => {
     )
 }
 
-export default SongsScreen
+export default ArtistsScreen

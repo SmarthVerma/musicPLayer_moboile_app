@@ -1,38 +1,39 @@
 {
-  "expo": {
-    "name": "music_player_app",
-    "slug": "music_player_app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
-    "newArchEnabled": true,
-    "scheme": "music_player_app",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.music-player-app"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    
-    "experiments": { 
-      "typedRoutes": true,
-      "tsconfigPaths": true
-    }
-  }
+	"expo": {
+		"name": "music_player_app",
+		"slug": "music_player_app",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "dark",
+		"newArchEnabled": true,
+		"scheme": "music_player_app",
+		"splash": {
+			"image": "./assets/splash-icon.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#000000"
+		},
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.anonymous.music-player-app",
+			"InfoPlist": {
+				"UIBackgroundModes": ["audio"]
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#000"
+			}
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"plugins": ["expo-router"],
+
+		"experiments": {
+			"typedRoutes": true,
+			"tsconfigPaths": true
+		}
+	}
 }
