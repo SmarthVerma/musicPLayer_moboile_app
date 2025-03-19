@@ -6,18 +6,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SplashScreen } from "expo-router";
 import { useCallback } from 'react';
+import { useLogTrackPlayerState } from '@/hooks/useLogTrackPlayerState';
 
 SplashScreen.preventAutoHideAsync();
 
 const AppLayout = () => {
 
+	useLogTrackPlayerState()
 
 	const handleTrackPlayerLoaded = useCallback(() => {
 		SplashScreen.hideAsync()
 	}, [])
 
+	// setup trackPlayer as soon as possible then hide the splash screen
 	useSetupTrackPlayer({
-		// onLoad: handleTrackPlayerLoaded
+		onLoad: handleTrackPlayerLoaded
 	})
 	return (
 		<SafeAreaProvider>
@@ -35,13 +38,6 @@ const RootNavigation = () => {
 	)
 }
 
-const Test = () => {
-	return (
-		<View style={defaultStyles.container}>
-			<Text style={defaultStyles.text} >Open up App.tsx to start working on your app!</Text>
-		</View>
-	)
-}
 
 
 export default AppLayout;

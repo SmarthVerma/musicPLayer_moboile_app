@@ -5,16 +5,17 @@ import FastImage from 'react-native-fast-image'
 import { unknownTrackImageUri } from '@/constants/images'
 import { defaultStyles } from '@/styles'
 import { PlayPauseButton, SkipToNextButton } from '@/components/PlayerControls'
+import { useLastActiveTrack } from '@/hooks/useLastActiveTrack'
+import { MovingText } from './MovingText'
 
 
 
 export default function FloatingPlayer({ style }: ViewProps) {
     const activeTrack = useActiveTrack()
+    const lastActiveTrack = useLastActiveTrack()
 
-    console.log('in gere', activeTrack)
-    const displayedTrack: Track = activeTrack ?? {
-        title: "This is just a song"
-    }
+    const displayedTrack = activeTrack ?? lastActiveTrack
+
     if (!displayedTrack) return null
 
 
@@ -27,7 +28,7 @@ export default function FloatingPlayer({ style }: ViewProps) {
                 />
 
                 <View style={styles.trackTitleContainer}>
-                    <Text style={styles.trackTitle}>{displayedTrack.title}</Text>
+                    <MovingText style={styles.trackTitle} animationThreshold={25} text={displayedTrack.title ?? ""} />
                 </View>
 
                 <View style={styles.trackControlsContainer}>

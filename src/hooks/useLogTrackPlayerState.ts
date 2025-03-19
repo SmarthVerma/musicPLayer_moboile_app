@@ -11,11 +11,11 @@ export const useLogTrackPlayerState = () => {
 		if (event.type === Event.PlaybackState) {
 			console.log('playback state', event.state);
 		}
-		if (event.type === Event.PlaybackError) {
-			console.error('playback error', event);
-		}
 		if (event.type === Event.PlaybackActiveTrackChanged) {
 			console.log('active track', event.index);
+		}
+		if (event.type === Event.PlaybackError) {
+			console.error('playback error', event);
 		}
 	});
 };

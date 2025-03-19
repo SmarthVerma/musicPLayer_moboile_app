@@ -3,8 +3,9 @@ import { colors, fontSize } from "@/constants/tokens"
 import { defaultStyles } from "@/styles"
 import { TouchableHighlight, View, StyleSheet, Text } from "react-native"
 import FastImage from "react-native-fast-image"
-import { Track, useActiveTrack } from "react-native-track-player"
+import { Track, useActiveTrack, useIsPlaying } from "react-native-track-player"
 import { Entypo, Ionicons } from "@expo/vector-icons";
+import LoaderKit from "react-native-loader-kit";
 
 export type TrackListItemProps = {
     track: Track
@@ -14,14 +15,22 @@ export type TrackListItemProps = {
 export const TrackListItem = ({ track, onTrackSelect: handleTrackSelect }: TrackListItemProps) => {
 
     const isActiveTrack = useActiveTrack()?.url === track.url
-
+    const { playing } = useIsPlaying()
+    
     return (
         <TouchableHighlight onPress={() => handleTrackSelect(track)}  >
             <View style={styles.trackItemContainer} >
                 <View>
                     <FastImage
                         source={{ uri: track.artwork ?? unknownTrackImageUri, priority: FastImage.priority.normal }}
-                        style={{ ...styles.trackArtworkImage, opacity: isActiveTrack ? 0.6 : 1 }} />
+                        style={{ ...styles.trackArtworkImage, opacity: isActiveTrack ? 0.6 : 1 }}
+                    />
+                    {isActiveTrack && (playing ? (
+                        <LoaderKit name="LineScaleParty" style={styles.trackPlayingIconIndicator} color={colors.icon} />
+                    ) :  (
+                        <Ionicons name="play" size={24} style={styles.trackPausedIndicator} color={colors.icon} />
+                    ))}
+
                 </View>
 
                 <View style={{ flex: 1 }}>

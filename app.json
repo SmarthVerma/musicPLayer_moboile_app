@@ -24,7 +24,8 @@
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/adaptive-icon.png",
 				"backgroundColor": "#000"
-			}
+			},
+			"package": "com.anonymous.musicplayerapp"
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
